@@ -23,5 +23,5 @@ def update_user(id):
 
 def delete_user(id):
     user = User.objects.get_or_404(id=id)
-    User.delete()
+    user.delete()
     return jsonify(str(user.id)), 200
