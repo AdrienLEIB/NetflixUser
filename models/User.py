@@ -1,7 +1,9 @@
 from flask_mongoengine import MongoEngine
 db = MongoEngine()
 
-class Users(db.Document):
+
+class User(db.Document):
+
     name = db.StringField()
     address = db.StringField()
     country = db.StringField()
