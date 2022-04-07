@@ -11,7 +11,8 @@ def get_user(id):
 
 
 def get_user_authorized(id):
-    if User.objects.get_or_404(id=id):
+    user = User.objects.get_or_404(id=id)
+    if user.status == 'on':
         return jsonify(True)
     return jsonify(False)
 
