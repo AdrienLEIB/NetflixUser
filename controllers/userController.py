@@ -9,6 +9,12 @@ def get_users():
 def get_user(id):
     return jsonify(User.objects.get_or_404(id=id)), 200
 
+
+def get_user_authorized(id):
+    if User.objects.get_or_404(id=id):
+        return jsonify(True)
+    return jsonify(False)
+
 def create_user():
     body = request.get_json()
     user = User(**body).save()
